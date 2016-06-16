@@ -35,8 +35,6 @@ public class ListeEtiquette<E> extends ArrayList<E> implements Iterable<E> {
 
         int pos = 0;
 
-  
-
     public boolean hasNext() {
         return pos < ListeEtiquette.this.size();
     }
