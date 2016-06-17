@@ -8,10 +8,11 @@ import java.util.Iterator;
 
 public class ListeEtiquette<E> extends ArrayList<E> implements Iterable<E> {
 
-    private static ArrayList<Etiquette> Etiquettes = new ArrayList<>();
+    private ArrayList<Etiquette> Etiquettes;
 
     public ListeEtiquette() {
         super();
+        Etiquettes = new ArrayList<Etiquette>();
     }
 
     public void ajouterEtiquette(Etiquette a_etiquette) {
@@ -31,15 +32,11 @@ public class ListeEtiquette<E> extends ArrayList<E> implements Iterable<E> {
 //Cette méthode permet de supprimer plusieurs étiquettes. Toutes les étiquettes ayant le même id
 //sont supprimées.
     }
-//        int pos = 0;
-//        public boolean hasNext() {
-//        return pos < ListeEtiquette.this.size();
-//    }
-//
-//    public Integer next() {
-//        return (Integer) ListeEtiquette.this.get(pos++);
-//    }
-
+    
+    public ArrayList<Etiquette> getEtiquette(){
+        return Etiquettes;
+    }
+    
     public void iterator(int a_position) {
 //        Iterator<Etiquette> 
 //Cette méthode retourne un itérateur sur des étiquettes. L’utilisateur donne la position d’une case
@@ -48,19 +45,16 @@ public class ListeEtiquette<E> extends ArrayList<E> implements Iterable<E> {
 // liste les etiquette relier a cette case
     }
 
-    public void iterator(String a_id) {
-//         Iterator< E>
+    public Iterator<E> iterator(String a_id) {
 //Finalement, cette méthode va retourner un iterateur qui parcours les cases du tableau d’éléments.
 //Par contre, seule les cases qui font partie d’un intervalle ayant l’id indiqué seront parcourues.
 //Même si une case est contenue dans plusieurs intervalles, elle ne sera parcourue qu’une seule fois.
 //Les cases doivent être parcourues dans le même ordre que nous les retrouvons dans le tableau.
 //Iterator iter = this.iterator();
 //retourne tus les case qui sont lier a cette etiuqette
-        for (Etiquette E : Etiquettes) {
-            if (E.id() == a_id) {
-                System.out.println(">>" + E.id() + " de:" + E.debut() + "  a:" + E.fin());
-            }
-        }
-    }
+        System.out.println(" ds it string a_id ...........");
+        return new IterListeEtiquette<E>(this,a_id);
 
+
+    }
 }
