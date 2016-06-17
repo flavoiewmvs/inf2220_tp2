@@ -31,7 +31,9 @@ public class Etiquette implements Comparable< Etiquette > {
 	public int fin() {
 		return _fin;
 	}
-
+        public boolean estInclus(int indice){
+            return (indice >= this._debut && indice <= this._fin);
+        }
 	@Override
 	public int compareTo( Etiquette a_deuxieme ) {
 		int resultat = _debut - a_deuxieme._debut;
