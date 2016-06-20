@@ -31,6 +31,7 @@ public class ListeEtiquette<E> extends ArrayList<E> implements Iterable<E> {
     public void supprimerEtiquettes(String a_id) {
 //Cette méthode permet de supprimer plusieurs étiquettes. Toutes les étiquettes ayant le même id
 //sont supprimées.
+//a faire
     }
     
     public ArrayList<Etiquette> getEtiquette(){
