@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Etiquette.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;TP2&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">tp2</a> &gt; <span class="el_source">Etiquette.java</span></div><h1>Etiquette.java</h1><pre class="source lang-java linenums">/*
+  * @author flavo Fabien Lavoie Lavf27046702
+ */
+package tp2;
+
+public class Etiquette implements Comparable&lt; Etiquette &gt; {
+	private String _id;
+	private int _debut;
+	private int _fin;
+	
+	{
+<span class="fc" id="L12">		_id = &quot;&quot;;</span>
+<span class="fc" id="L13">		_debut = 0;</span>
+<span class="fc" id="L14">		_fin = 0;</span>
+	}
+	
+<span class="fc" id="L17">	public Etiquette( String a_id, int a_debut, int a_fin ) {</span>
+<span class="fc" id="L18">		_id = a_id;</span>
+<span class="fc" id="L19">		_debut = a_debut;</span>
+<span class="fc" id="L20">		_fin = a_fin;</span>
+<span class="fc" id="L21">	}</span>
+	
+	public String id() {
+<span class="fc" id="L24">		return _id;</span>
+	}
+	
+	public int debut() {
+<span class="nc" id="L28">		return _debut;</span>
+	}
+	
+	public int fin() {
+<span class="nc" id="L32">		return _fin;</span>
+	}
+        public boolean estInclus(int indice){
+<span class="fc bfc" id="L35" title="All 4 branches covered.">            return (indice &gt;= this._debut &amp;&amp; indice &lt;= this._fin);</span>
+        }
+	@Override
+	public int compareTo( Etiquette a_deuxieme ) {
+<span class="fc" id="L39">		int resultat = _debut - a_deuxieme._debut;</span>
+		
+<span class="fc bfc" id="L41" title="All 2 branches covered.">		if( 0 == resultat ) {</span>
+<span class="fc" id="L42">			resultat = _fin - a_deuxieme._fin;</span>
+		}
+		
+<span class="fc" id="L45">		return resultat;</span>
+	}
+	
+	@Override
+	public boolean equals( Object a_deuxieme ) {
+<span class="fc" id="L50">		boolean resultat = false;</span>
+		
+<span class="pc bpc" id="L52" title="1 of 2 branches missed.">		if( a_deuxieme instanceof Etiquette ) {</span>
+<span class="fc" id="L53">			Etiquette temp = ( Etiquette ) a_deuxieme;</span>
+<span class="fc bfc" id="L54" title="All 4 branches covered.">			resultat = _id == temp._id &amp;&amp; 0 == compareTo( temp );</span>
+		}
+		
+<span class="fc" id="L57">		return resultat;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

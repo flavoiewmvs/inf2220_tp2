@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>mainTP2.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;TP2&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">tp2</a> &gt; <span class="el_source">mainTP2.java</span></div><h1>mainTP2.java</h1><pre class="source lang-java linenums">/*
+ * @author flavo Fabien Lavoie Lavf27046702
+ */
+package tp2;
+
+import java.util.*;
+
+/**
+ *
+ * @author flavo
+ */
+<span class="nc" id="L12">public class mainTP2 {</span>
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+//        TestListeEtiquette T = new TestListeEtiquette();
+//        T.test();
+<span class="fc" id="L20">        ListeEtiquette&lt;Integer&gt; LE = new ListeEtiquette&lt;&gt;();</span>
+<span class="fc" id="L21">        ListeEtiquette&lt;Integer&gt; LE1 = new ListeEtiquette&lt;&gt;();</span>
+<span class="fc" id="L22">        LE.add(7);</span>
+<span class="fc" id="L23">        LE.add(2);</span>
+<span class="fc" id="L24">        LE.add(3);</span>
+<span class="fc" id="L25">        LE.add(4);</span>
+<span class="fc" id="L26">        LE.add(5);</span>
+<span class="fc" id="L27">        LE.add(7);</span>
+<span class="fc" id="L28">        LE.add(4);</span>
+<span class="fc" id="L29">        LE.add(0);</span>
+<span class="fc" id="L30">        LE.add(3);</span>
+
+<span class="fc" id="L32">        LE1.add(7);</span>
+<span class="fc" id="L33">        LE1.add(2);</span>
+<span class="fc" id="L34">        LE1.add(3);</span>
+<span class="fc" id="L35">        LE1.add(4);</span>
+
+<span class="fc" id="L37">        Etiquette e1 = new Etiquette(&quot;test&quot;, 1, 5);</span>
+<span class="fc" id="L38">        Etiquette e2 = new Etiquette(&quot;t2&quot;, 5, 7);</span>
+<span class="fc" id="L39">        Etiquette e3 = new Etiquette(&quot;test&quot;, 4, 5);</span>
+<span class="fc" id="L40">        Etiquette e4 = new Etiquette(&quot;test&quot;, 8, 8);</span>
+<span class="fc" id="L41">        Etiquette e5 = new Etiquette(&quot;t5&quot;, 5, 7);</span>
+<span class="fc" id="L42">        Etiquette e6 = new Etiquette(&quot;t6&quot;, 5, 7);</span>
+<span class="fc" id="L43">        LE.ajouterEtiquette(e1);</span>
+<span class="fc" id="L44">        LE.ajouterEtiquette(e2);</span>
+<span class="fc" id="L45">        LE.ajouterEtiquette(e3);</span>
+<span class="fc" id="L46">        LE.ajouterEtiquette(e4);</span>
+<span class="fc" id="L47">        LE.ajouterEtiquette(e5);</span>
+<span class="fc" id="L48">        LE.ajouterEtiquette(e6);</span>
+//        LE1.ajouterEtiquette(e1);
+//        LE1.ajouterEtiquette(e2);
+//         Iterator&lt;Integer&gt; it = LE.iterator();
+<span class="fc" id="L52">        Iterator itr1 = LE.iterator(&quot;test&quot;);</span>
+<span class="fc bfc" id="L53" title="All 2 branches covered.">        while (itr1.hasNext()) {</span>
+<span class="fc" id="L54">            Object element = itr1.next();</span>
+<span class="fc" id="L55">            System.out.print(element + &quot; &quot;);</span>
+<span class="fc" id="L56">        }</span>
+<span class="fc" id="L57">        System.out.println();</span>
+<span class="fc" id="L58">        Iterator itr2 = LE.iterator(8);</span>
+<span class="fc bfc" id="L59" title="All 2 branches covered.">        while (itr2.hasNext()) {</span>
+<span class="fc" id="L60">            Etiquette element = (Etiquette) itr2.next();</span>
+<span class="fc" id="L61">            System.out.println(element.id() + &quot; &quot;);</span>
+<span class="fc" id="L62">        }</span>
+<span class="fc" id="L63">        LE.supprimerEtiquettes(&quot;test&quot;);</span>
+
+<span class="fc" id="L65">        itr1 = LE.iterator(&quot;test&quot;);</span>
+<span class="pc bpc" id="L66" title="1 of 2 branches missed.">        while (itr1.hasNext()) {</span>
+<span class="nc" id="L67">            Object element = itr1.next();</span>
+<span class="nc" id="L68">            System.out.print(element + &quot; &quot;);</span>
+<span class="nc" id="L69">        }</span>
+
+<span class="fc" id="L71">        System.out.println(&quot;Fin normal &quot;);</span>
+<span class="fc" id="L72">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

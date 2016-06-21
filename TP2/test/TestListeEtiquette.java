@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tp2;
+
 
 //package inf2120ete2016;
 
@@ -17,7 +17,7 @@ import java.util.stream.StreamSupport;
 
 import org.junit.Test;
 
-
+import tp2.*;
 
 
 public class TestListeEtiquette {

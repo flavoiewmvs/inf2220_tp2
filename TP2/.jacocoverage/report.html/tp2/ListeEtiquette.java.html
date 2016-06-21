@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>ListeEtiquette.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;TP2&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">tp2</a> &gt; <span class="el_source">ListeEtiquette.java</span></div><h1>ListeEtiquette.java</h1><pre class="source lang-java linenums">/*
+ * @author flavo Fabien Lavoie Lavf27046702
+ */
+package tp2;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+
+public class ListeEtiquette&lt;E&gt; extends ArrayList&lt;E&gt; implements Iterable&lt;E&gt; {
+
+    private ArrayList&lt;Etiquette&gt; Etiquettes;
+
+    public ListeEtiquette() {
+<span class="fc" id="L14">        super();</span>
+<span class="fc" id="L15">        Etiquettes = new ArrayList&lt;Etiquette&gt;();</span>
+<span class="fc" id="L16">    }</span>
+
+    public void ajouterEtiquette(Etiquette a_etiquette) {
+//Cette méthode va permettre d’ajouter une étiquette à la structure. Il n’y a pas de règle pour ces
+//étiquettes. Elles seront considéré comme valide, peu importe leurs contenu.
+<span class="fc" id="L21">        Etiquettes.add(a_etiquette);</span>
+<span class="fc" id="L22">    }</span>
+
+    public void supprimerEtiquette(Etiquette a_etiquette) {
+//Cette méthode permet de supprimer une étiquette de la structure. Utiliser equals() pour trouver
+//l’étiquette à supprimer. Une seule étiquette est supprimée. Donc, s’il y a plusieurs étiquettes
+//similaires, une seule de ces étiquettes est supprimée.
+<span class="fc" id="L28">        Etiquettes.remove(a_etiquette);</span>
+<span class="fc" id="L29">    }</span>
+
+    public void supprimerEtiquettes(String a_id) {
+//Cette méthode permet de supprimer plusieurs étiquettes. Toutes les étiquettes ayant le même id
+//sont supprimées.
+<span class="fc" id="L34">        ArrayList _etiquette = null;</span>
+<span class="fc" id="L35">        _etiquette = this.getEtiquette();</span>
+<span class="fc" id="L36">        int nbEtiquette = _etiquette.size() - 1;</span>
+<span class="fc bfc" id="L37" title="All 2 branches covered.">        for (int i = nbEtiquette; i &gt;= 0; --i) {</span>
+<span class="fc" id="L38">            Etiquette eti = (Etiquette) _etiquette.get(i);</span>
+<span class="pc bfc" id="L39" title="All 2 branches covered.">            if (a_id == eti.id()) {</span>
+<span class="pc" id="L40">                supprimerEtiquette(eti);</span>
+            }
+<span class="nc" id="L42">        }</span>
+<span class="fc" id="L43">    }</span>
+<span class="nc" id="L44"></span>
+    public ArrayList&lt;Etiquette&gt; getEtiquette() {
+<span class="pc" id="L46">        return Etiquettes;</span>
+    }
+
+<span class="nc bnc" id="L49" title="All 2 branches missed.">    public Iterator&lt;Etiquette&gt; iterator(int a_position) {</span>
+//        Iterator&lt;Etiquette&gt; 
+//Cette méthode retourne un itérateur sur des étiquettes. L’utilisateur donne la position d’une case
+//du tableau (indice). L’itérateur va permettre de parcourir toutes les étiquettes qui contiennent cette
+<span class="nc" id="L53">//case dans leur intervalle.</span>
+<span class="nc" id="L54">// liste les etiquette relier a cette case</span>
+<span class="nc" id="L55">//      System.out.println(&quot; ds it int a_position ...........&quot;);</span>
+<span class="fc" id="L56">        return new IterListeEtiquette(Etiquettes, a_position);</span>
+    }
+
+    public Iterator&lt;E&gt; iterator(String a_id) {
+//Finalement, cette méthode va retourner un iterateur qui parcours les cases du tableau d’éléments.
+//Par contre, seule les cases qui font partie d’un intervalle ayant l’id indiqué seront parcourues.
+//Même si une case est contenue dans plusieurs intervalles, elle ne sera parcourue qu’une seule fois.
+//Les cases doivent être parcourues dans le même ordre que nous les retrouvons dans le tableau.
+//Iterator iter = this.iterator();
+//retourne tus les case qui sont lier a cette etiuqette
+//        System.out.println(&quot; ds it string a_id ...........&quot;);
+<span class="fc" id="L67">        return new IterListeItem&lt;E&gt;(this, a_id);</span>
+
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

@@ -31,13 +31,21 @@ public class ListeEtiquette<E> extends ArrayList<E> implements Iterable<E> {
     public void supprimerEtiquettes(String a_id) {
 //Cette méthode permet de supprimer plusieurs étiquettes. Toutes les étiquettes ayant le même id
 //sont supprimées.
-//a faire
+        ArrayList _etiquette = null;
+        _etiquette = this.getEtiquette();
+        int nbEtiquette = _etiquette.size() - 1;
+        for (int i = nbEtiquette; i >= 0; --i) {
+            Etiquette eti = (Etiquette) _etiquette.get(i);
+            if (a_id == eti.id()) {
+                supprimerEtiquette(eti);
+            }
+        }
     }
-    
-    public ArrayList<Etiquette> getEtiquette(){
+
+    public ArrayList<Etiquette> getEtiquette() {
         return Etiquettes;
     }
-    
+
     public Iterator<Etiquette> iterator(int a_position) {
 //        Iterator<Etiquette> 
 //Cette méthode retourne un itérateur sur des étiquettes. L’utilisateur donne la position d’une case
@@ -45,7 +53,7 @@ public class ListeEtiquette<E> extends ArrayList<E> implements Iterable<E> {
 //case dans leur intervalle.
 // liste les etiquette relier a cette case
 //      System.out.println(" ds it int a_position ...........");
-        return new IterListeEtiquette(Etiquettes,a_position);
+        return new IterListeEtiquette(Etiquettes, a_position);
     }
 
     public Iterator<E> iterator(String a_id) {
@@ -56,8 +64,7 @@ public class ListeEtiquette<E> extends ArrayList<E> implements Iterable<E> {
 //Iterator iter = this.iterator();
 //retourne tus les case qui sont lier a cette etiuqette
 //        System.out.println(" ds it string a_id ...........");
-        return new IterListeItem<E>(this,a_id);
-
+        return new IterListeItem<E>(this, a_id);
 
     }
 }

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>IterListeItem.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;TP2&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">tp2</a> &gt; <span class="el_source">IterListeItem.java</span></div><h1>IterListeItem.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package tp2;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+
+/**
+ *
+ * @author flavo
+ */
+public class IterListeItem&lt;S&gt; implements Iterator&lt;S&gt; {
+
+<span class="pc" id="L17">    private ArrayList&lt;S&gt; _courrant = null;</span>
+<span class="pc" id="L18">    private ArrayList _etiquette = null;</span>
+<span class="pc" id="L19">    private int pos = 0;</span>
+
+<span class="nc" id="L21">    public IterListeItem(ListeEtiquette&lt;S&gt; a_liste) {</span>
+<span class="nc" id="L22">        _courrant = a_liste;</span>
+<span class="nc" id="L23">    }</span>
+
+<span class="fc" id="L25">    public IterListeItem(ListeEtiquette&lt;S&gt; a_liste, String par_id) {</span>
+<span class="fc" id="L26">        _courrant = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L27">        _etiquette = a_liste.getEtiquette();</span>
+<span class="fc" id="L28">        int nbEtiquette = _etiquette.size() - 1;</span>
+<span class="fc" id="L29">        boolean fait = false;</span>
+<span class="fc bfc" id="L30" title="All 2 branches covered.">        for (int j = 0; j &lt;= a_liste.size() - 1; ++j) {</span>
+<span class="fc" id="L31">            fait = false;</span>
+<span class="fc bfc" id="L32" title="All 4 branches covered.">            for (int i = 0; !fait &amp;&amp; i &lt;= nbEtiquette; ++i) {</span>
+<span class="fc" id="L33">                Etiquette eti = (Etiquette) _etiquette.get(i);</span>
+<span class="fc bfc" id="L34" title="All 4 branches covered.">                if (par_id == eti.id() &amp;&amp; eti.estInclus(j)) {</span>
+<span class="fc" id="L35">                    fait = true;</span>
+<span class="fc" id="L36">                    _courrant.add(a_liste.get(j));</span>
+                }
+            }
+        }
+<span class="fc" id="L40">    }</span>
+
+  
+    public boolean hasNext() {
+<span class="fc bfc" id="L44" title="All 2 branches covered.">        return pos &lt;= _courrant.size() - 1;</span>
+    }
+
+    public S next() {
+<span class="fc" id="L48">        S element = _courrant.get(pos);</span>
+<span class="fc" id="L49">        ++pos;</span>
+<span class="fc" id="L50">        return element;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>
