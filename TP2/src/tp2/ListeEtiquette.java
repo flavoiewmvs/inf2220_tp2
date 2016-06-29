@@ -1,5 +1,5 @@
 /*
- * @author flavo Fabien Lavoie Lavf27046702
+ * @author flavoie Fabien Lavoie Lavf27046702
  */
 package tp2;
 

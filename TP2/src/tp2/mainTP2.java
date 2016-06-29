@@ -28,6 +28,9 @@ public class mainTP2 {
         LE.add(4);
         LE.add(0);
         LE.add(3);
+        for (Integer i : LE){
+                      System.out.println(i + " ");
+        }
 
         LE1.add(7);
         LE1.add(2);
@@ -50,10 +53,11 @@ public class mainTP2 {
 //        LE1.ajouterEtiquette(e2);
 //         Iterator<Integer> it = LE.iterator();
         Iterator itr1 = LE.iterator("test");
-        while (itr1.hasNext()) {
-            Object element = itr1.next();
-            System.out.print(element + " ");
-        }
+        
+//        while (itr1.hasNext()) {
+//            Object element = itr1.next();
+//            System.out.print(element + " ");
+//        }
         System.out.println();
         Iterator itr2 = LE.iterator(8);
         while (itr2.hasNext()) {

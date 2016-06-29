@@ -1,17 +1,11 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * @author flavoie Fabien Lavoie Lavf27046702
  */
 package tp2;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 
-/**
- *
- * @author flavo
- */
 public class IterListeItem<S> implements Iterator<S> {
 
     private ArrayList<S> _courrant = null;
