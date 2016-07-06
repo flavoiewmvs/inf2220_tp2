@@ -1,5 +1,8 @@
 /*
  * @author flavoie Fabien Lavoie Lavf27046702
+ * a pour objectifs de vous faire construire des Iterator et d’utiliser l’héritage d’un
+ * ArrayList à votre avantage. Avec des fonctionnalités d’annotation (étiquetage) à un
+ * tableau
  */
 package tp2;
 
@@ -52,7 +55,6 @@ public class ListeEtiquette<E> extends ArrayList<E> implements Iterable<E> {
 //du tableau (indice). L’itérateur va permettre de parcourir toutes les étiquettes qui contiennent cette
 //case dans leur intervalle.
 // liste les etiquette relier a cette case
-//      System.out.println(" ds it int a_position ...........");
         return new IterListeEtiquette(Etiquettes, a_position);
     }
 
@@ -63,7 +65,6 @@ public class ListeEtiquette<E> extends ArrayList<E> implements Iterable<E> {
 //Les cases doivent être parcourues dans le même ordre que nous les retrouvons dans le tableau.
 //Iterator iter = this.iterator();
 //retourne tus les case qui sont lier a cette etiuqette
-//        System.out.println(" ds it string a_id ...........");
         return new IterListeItem<E>(this, a_id);
 
     }

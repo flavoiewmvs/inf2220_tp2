@@ -1,5 +1,9 @@
 /*
  * @author flavoie Fabien Lavoie Lavf27046702
+ *
+ * Cette class retourne un itérateur sur des étiquettes. L’utilisateur donne la position d’une case
+ * du tableau (indice). L’itérateur va permettre de parcourir toutes les étiquettes qui contiennent cette
+ * case dans leur intervalle.
  */
 package tp2;
 
@@ -26,10 +30,12 @@ public class IterListeEtiquette implements Iterator {
     }
 
     public boolean hasNext() {
+              //validation si nous avons un prochain item
         return pos <= _courrant.size() - 1;
     }
 
     public Etiquette next() {
+        //nous retournons le suivant
         Etiquette element = _courrant.get(pos);
         ++pos;
         return element;

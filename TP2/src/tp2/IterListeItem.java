@@ -1,5 +1,10 @@
 /*
  * @author flavoie Fabien Lavoie Lavf27046702
+ *
+ * cette class va retourner un iterateur qui parcours les cases du tableau d’éléments.
+ * Par contre, seule les cases qui font partie d’un intervalle ayant l’id indiqué seront parcourues.
+ * Même si une case est contenue dans plusieurs intervalles, elle ne sera parcourue qu’une seule fois.
+ * Les cases doivent être parcourues dans le même ordre que nous les retrouvons dans le tableau.
  */
 package tp2;
 
@@ -35,10 +40,12 @@ public class IterListeItem<S> implements Iterator<S> {
 
   
     public boolean hasNext() {
+        //validation si nous avons un prochain item
         return pos <= _courrant.size() - 1;
     }
 
     public S next() {
+        //nous retournons le suivant
         S element = _courrant.get(pos);
         ++pos;
         return element;
